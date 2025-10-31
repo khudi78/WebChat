@@ -1,7 +1,7 @@
 import express from "express";
-import { getMessages, sendMessage, createGroup, addUserToGroup,removeUserFromGroup, fetchGroup } from "../controllers/message.controller.js";
+import { getMessages, sendMessage, createGroup, addUserToGroup,removeUserFromGroup, fetchGroup,getConversationDetails } from "../controllers/message.controller.js";
 import protectRoute from "../middleware/protectRoute.js";
-
+import { exportChat } from "../controllers/message.controller.js";
 const router = express.Router();
 
 router.get("/:id", protectRoute, getMessages);
@@ -16,5 +16,9 @@ router.post("/addUser", protectRoute, addUserToGroup);
 
 // Route to remove a user from a group
 router.post("/removeUser", protectRoute, removeUserFromGroup);
+
+router.get("/export/:conversationId", exportChat);
+
+router.get("/detail/getConversationDetails", getConversationDetails)
 
 export default router;
