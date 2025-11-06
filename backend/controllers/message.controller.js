@@ -255,7 +255,7 @@ export const exportChat = async (req, res) => {
         const formattedDate = date.toLocaleDateString("en-IN", {
           day: "2-digit",
           month: "2-digit",
-          year: "2-digit",
+          year: "numeric",
         });
         const formattedTime = date.toLocaleTimeString("en-IN", {
           hour: "2-digit",
